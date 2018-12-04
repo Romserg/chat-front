@@ -1,10 +1,11 @@
 import { AuthTabsComponent } from '../components/auth-tabs/auth-tabs.component';
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { SharedModule } from '../shared/shared.module';
+
 
 @NgModule({
   declarations: [AuthTabsComponent],
-  imports: [CommonModule],
+  imports: [SharedModule],
   exports: [AuthTabsComponent]
 })
 export class AuthModule { }
