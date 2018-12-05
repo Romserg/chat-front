@@ -5,7 +5,6 @@
                    placeholder="Username"
                    [formControl]="usernameFormControl"
                    [errorStateMatcher]="matcher">
-            <mat-hint>Errors appear instantly!</mat-hint>
             <mat-error *ngIf="usernameFormControl.hasError('minlength') && !usernameFormControl.hasError('required')">
                 Username must contain more than 3 characters
             </mat-error>
@@ -21,7 +20,6 @@
                    placeholder="E-mail"
                    [formControl]="emailFormControl"
                    [errorStateMatcher]="matcher">
-            <mat-hint>Errors appear instantly!</mat-hint>
             <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                 Please enter a valid email address
             </mat-error>
@@ -35,7 +33,6 @@
                    placeholder="Password"
                    [formControl]="passwordFormControl"
                    [errorStateMatcher]="matcher">
-            <mat-hint>Errors appear instantly!</mat-hint>
             <mat-error *ngIf="passwordFormControl.hasError('minlength') && !passwordFormControl.hasError('required')">
                 Password must contain more than 8 characters
             </mat-error>
