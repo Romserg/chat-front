@@ -1,6 +1,7 @@
 {
   "name": "my-chat",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "author": "Romserg",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --open",
