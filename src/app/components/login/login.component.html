@@ -1,1 +1,39 @@
-<h1>Login</h1>
+<div class="container">
+    <form class="example-form">
+        <mat-form-field class="example-full-width">
+            <input matInput
+                   placeholder="Username"
+                   [formControl]="usernameFormControl"
+                   [errorStateMatcher]="matcher">
+            <mat-hint>Errors appear instantly!</mat-hint>
+            <mat-error *ngIf="usernameFormControl.hasError('minlength') && !usernameFormControl.hasError('required')">
+                Username must contain more than 3 characters
+            </mat-error>
+            <mat-error *ngIf="usernameFormControl.hasError('maxlength')">
+                Username must contain less than 30 characters
+            </mat-error>
+            <mat-error *ngIf="usernameFormControl.hasError('required')">
+                Username is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <mat-form-field class="example-full-width">
+            <input matInput
+                   type="password"
+                   placeholder="Password"
+                   [formControl]="passwordFormControl"
+                   [errorStateMatcher]="matcher">
+            <mat-hint>Errors appear instantly!</mat-hint>
+            <mat-error *ngIf="passwordFormControl.hasError('minlength') && !passwordFormControl.hasError('required')">
+                Password must contain more than 8 characters
+            </mat-error>
+            <mat-error *ngIf="passwordFormControl.hasError('maxlength')">
+                Password must contain less than 30 characters
+            </mat-error>
+            <mat-error *ngIf="passwordFormControl.hasError('required')">
+                Password is <strong>required</strong>
+            </mat-error>
+        </mat-form-field>
+        <button mat-raised-button
+                color="primary">Login</button>
+    </form>
+</div>
