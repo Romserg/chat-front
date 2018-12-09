@@ -44,6 +44,7 @@
             </mat-error>
         </mat-form-field>
         <button mat-raised-button
+                [disabled]="!signupForm.valid"
                 color="primary">Sign up</button>
     </form>
 </div>

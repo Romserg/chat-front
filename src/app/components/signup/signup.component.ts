@@ -4,9 +4,8 @@ import { ErrorStateMatcher } from '@angular/material/core';
 import { AuthService } from 'src/app/services/auth.service';
 
 class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  isErrorState(control: FormControl | null): boolean {
+    return !!(control && control.invalid && (control.dirty || control.touched));
   }
 }
 
@@ -64,6 +63,7 @@ export class SignupComponent implements OnInit {
   signupUser() {
     this.authService.registerUser(this.signupForm.value).subscribe(data => {
       console.log(data);
+      this.signupForm.reset();
     }, err => {
       console.log(err);
     });
