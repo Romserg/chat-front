@@ -1,10 +1,10 @@
 <div class="container">
-    <form class="example-form">
+    <form class="example-form" [formGroup]="signupForm" novalidate (ngSubmit)="signupUser()">
         <mat-form-field class="example-full-width">
             <input matInput
                    placeholder="Username"
-                   [formControl]="usernameFormControl"
-                   [errorStateMatcher]="matcher">
+                   [errorStateMatcher]="matcher"
+                   formControlName="username">
             <mat-error *ngIf="usernameFormControl.hasError('minlength') && !usernameFormControl.hasError('required')">
                 Username must contain more than 3 characters
             </mat-error>
@@ -18,8 +18,8 @@
         <mat-form-field class="example-full-width">
             <input matInput
                    placeholder="E-mail"
-                   [formControl]="emailFormControl"
-                   [errorStateMatcher]="matcher">
+                   [errorStateMatcher]="matcher"
+                   formControlName="email">
             <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
                 Please enter a valid email address
             </mat-error>
@@ -31,8 +31,8 @@
             <input matInput
                    type="password"
                    placeholder="Password"
-                   [formControl]="passwordFormControl"
-                   [errorStateMatcher]="matcher">
+                   [errorStateMatcher]="matcher"
+                   formControlName="password">
             <mat-error *ngIf="passwordFormControl.hasError('minlength') && !passwordFormControl.hasError('required')">
                 Password must contain more than 8 characters
             </mat-error>
