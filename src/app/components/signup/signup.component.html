@@ -1,4 +1,7 @@
 <div class="container">
+    <div id="errorMsg" *ngIf="errorMessage">
+        <span>{{errorMessage}}</span>
+    </div>
     <form class="example-form" [formGroup]="signupForm" novalidate (ngSubmit)="signupUser()">
         <mat-form-field class="example-full-width">
             <input matInput

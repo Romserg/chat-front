@@ -36,6 +36,7 @@ export class SignupComponent implements OnInit {
   constructor(private authService: AuthService, private fb: FormBuilder) { }
 
   signupForm: FormGroup;
+  errorMessage: string;
 
   ngOnInit() {
     this.init();
@@ -66,6 +67,12 @@ export class SignupComponent implements OnInit {
       this.signupForm.reset();
     }, err => {
       console.log(err);
+      if (err.error.msg) {
+        this.errorMessage = err.error.msg[0].message;
+      }
+      if (err.error.message) {
+        this.errorMessage = err.error.message;
+      }
     });
   }
 }
