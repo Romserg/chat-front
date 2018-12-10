@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
 
 class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null): boolean {
@@ -33,7 +34,7 @@ export class SignupComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
 
-  constructor(private authService: AuthService, private fb: FormBuilder) { }
+  constructor(private authService: AuthService, private fb: FormBuilder, private router: Router) { }
 
   signupForm: FormGroup;
   errorMessage: string;
@@ -65,6 +66,7 @@ export class SignupComponent implements OnInit {
     this.authService.registerUser(this.signupForm.value).subscribe(data => {
       console.log(data);
       this.signupForm.reset();
+      this.router.navigate(['streams']);
     }, err => {
       console.log(err);
       if (err.error.msg) {
