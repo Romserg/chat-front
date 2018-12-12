@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroupDirective, NgForm, Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
@@ -38,6 +38,7 @@ export class SignupComponent implements OnInit {
 
   signupForm: FormGroup;
   errorMessage: string;
+  showSpinner = false;
 
   ngOnInit() {
     this.init();
@@ -63,12 +64,17 @@ export class SignupComponent implements OnInit {
   }
 
   signupUser() {
+    this.showSpinner = true;
+    this.errorMessage = '';
     this.authService.registerUser(this.signupForm.value).subscribe(data => {
       console.log(data);
       this.signupForm.reset();
-      this.router.navigate(['streams']);
+      setTimeout(() => {
+        this.showSpinner = false;
+        this.router.navigate(['streams']);
+      }, 2000);
     }, err => {
-      console.log(err);
+      this.showSpinner = false;
       if (err.error.msg) {
         this.errorMessage = err.error.msg[0].message;
       }

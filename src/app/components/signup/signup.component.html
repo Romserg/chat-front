@@ -1,4 +1,5 @@
 <div class="container">
+    <mat-progress-bar *ngIf="showSpinner" mode="indeterminate"></mat-progress-bar>
     <div id="errorMsg" *ngIf="errorMessage">
         <span>{{errorMessage}}</span>
     </div>
