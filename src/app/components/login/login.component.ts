@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
+import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 class MyErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
+  isErrorState(control: FormControl | null): boolean {
+    return !!(control && control.invalid && (control.dirty || control.touched));
   }
 }
 @Component({
@@ -26,9 +27,39 @@ export class LoginComponent implements OnInit {
   ]);
 
   matcher = new MyErrorStateMatcher();
-  constructor() { }
+
+  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) { }
+
+  loginForm: FormGroup;
+  errorMessage: string;
+  showSpinner = false;
 
   ngOnInit() {
+    this.init();
   }
 
+  init() {
+    this.loginForm = this.fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required]
+    });
+  }
+
+  loginUser() {
+    this.showSpinner = true;
+    this.authService.loginUser(this.loginForm.value).subscribe(data => {
+      console.log(data);
+      this.loginForm.reset();
+      setTimeout(() => {
+        this.showSpinner = false;
+        this.router.navigate(['streams']);
+      }, 2000);
+    }, err => {
+      this.showSpinner = false;
+
+      if (err.error.message) {
+        this.errorMessage = err.error.message;
+      }
+    });
+  }
 }

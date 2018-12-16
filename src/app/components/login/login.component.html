@@ -1,10 +1,14 @@
 <div class="container">
-    <form class="example-form">
+    <mat-progress-bar *ngIf="showSpinner" mode="indeterminate"></mat-progress-bar>
+    <div id="errorMsg" *ngIf="errorMessage">
+        <span>{{errorMessage}}</span>
+    </div>
+    <form class="example-form" [formGroup]="loginForm" novalidate (ngSubmit)="loginUser()">
         <mat-form-field class="example-full-width">
             <input matInput
                    placeholder="Username"
-                   [formControl]="usernameFormControl"
-                   [errorStateMatcher]="matcher">
+                   [errorStateMatcher]="matcher"
+                   formControlName="username">
             <mat-error *ngIf="usernameFormControl.hasError('minlength') && !usernameFormControl.hasError('required')">
                 Username must contain more than 3 characters
             </mat-error>
@@ -19,8 +23,8 @@
             <input matInput
                    type="password"
                    placeholder="Password"
-                   [formControl]="passwordFormControl"
-                   [errorStateMatcher]="matcher">
+                   [errorStateMatcher]="matcher"
+                   formControlName="password">
             <mat-error *ngIf="passwordFormControl.hasError('minlength') && !passwordFormControl.hasError('required')">
                 Password must contain more than 8 characters
             </mat-error>
@@ -32,6 +36,7 @@
             </mat-error>
         </mat-form-field>
         <button mat-raised-button
+                [disabled]="!loginForm.valid"
                 color="primary">Login</button>
     </form>
 </div>

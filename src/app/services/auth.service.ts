@@ -5,12 +5,16 @@ import { Observable } from 'rxjs';
 const BASEURL = 'http://localhost:3000/api/chat';
 
 @Injectable({
-	providedIn: 'root'
+  providedIn: 'root'
 })
 export class AuthService {
-	constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
-	registerUser(body): Observable<any> {
-		return this.http.post(`${BASEURL}/register`, body);
-	}
+  registerUser(body): Observable<any> {
+    return this.http.post(`${BASEURL}/register`, body);
+  }
+
+  loginUser(body): Observable<any> {
+    return this.http.post(`${BASEURL}/login`, body);
+  }
 }
