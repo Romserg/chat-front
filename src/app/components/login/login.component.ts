@@ -3,6 +3,7 @@ import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms'
 import { ErrorStateMatcher } from '@angular/material/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { TokenService } from '../../services/token.service';
 
 class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null): boolean {
@@ -28,7 +29,12 @@ export class LoginComponent implements OnInit {
 
   matcher = new MyErrorStateMatcher();
 
-  constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) { }
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router,
+    private tokenService: TokenService
+  ) { }
 
   loginForm: FormGroup;
   errorMessage: string;
@@ -48,7 +54,7 @@ export class LoginComponent implements OnInit {
   loginUser() {
     this.showSpinner = true;
     this.authService.loginUser(this.loginForm.value).subscribe(data => {
-      console.log(data);
+      this.tokenService.SetToken(data.token);
       this.loginForm.reset();
       setTimeout(() => {
         this.showSpinner = false;
