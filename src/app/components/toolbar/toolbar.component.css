@@ -1,5 +1,10 @@
 .container {
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid mediumpurple;
+}
+.toolbar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -8,4 +13,17 @@
 
 i {
     cursor: pointer;
+}
+
+.example-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 400px;
+}
+
+.example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
 }
