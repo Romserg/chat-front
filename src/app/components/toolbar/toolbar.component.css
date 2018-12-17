@@ -4,26 +4,40 @@
     align-items: center;
     border: 1px solid mediumpurple;
 }
-.toolbar {
+.nav_bar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    background-color: #32c8ff;
 }
 
-i {
+#chat_title {
+    color: #f6f6f6;
+}
+
+#icon_logout {
+    color: #f6f6f6;
     cursor: pointer;
 }
 
-.example-card {
+.profile-card {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     max-width: 400px;
+    background-color: #32c8ff;
 }
 
-.example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+.profile-card-header-image {
+    background-image: url('http://www.jute.com/html/icons/LoginRed.jpg');
     background-size: cover;
+    height: 100px;
+    width: 100px;
+    border: 4px solid #42ccff;
+}
+
+.profile-card-title {
+    color: #f6f6f6;
 }
