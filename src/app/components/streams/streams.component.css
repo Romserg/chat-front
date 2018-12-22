@@ -1,12 +1,29 @@
-.container {
-    width: 100%;
+.header {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
     background-color: #32c8ff;
 }
 
-.toolbar {
+.wrapper {
     width: 100%;
-    max-width: 1280px;
+    max-width: 1200px;
 }
+
+.main {
+    display: flex;
+    justify-content: center;
+}
+
+.main-items {
+    display: flex;
+    flex-direction: row;
+}
+
+.side-component, .post-component {
+    margin: 20px 10px;
+    min-width: 150px;
+    color: grey;
+}
+
