@@ -59,7 +59,7 @@ export class LoginComponent implements OnInit {
       setTimeout(() => {
         this.showSpinner = false;
         this.router.navigate(['streams']);
-      }, 2000);
+      }, 1000);
     }, err => {
       this.showSpinner = false;
 

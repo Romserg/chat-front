@@ -4,9 +4,10 @@ import { StreamsComponent } from '../components/streams/streams.component';
 import { TokenService } from '../services/token.service';
 import { SharedModule } from '../shared/shared.module';
 import { ToolbarComponent } from '../components/toolbar/toolbar.component';
+import { SideComponent } from '../components/side/side.component';
 
 @NgModule({
-  declarations: [StreamsComponent, ToolbarComponent],
+  declarations: [StreamsComponent, ToolbarComponent, SideComponent],
   imports: [
     SharedModule,
     CommonModule
