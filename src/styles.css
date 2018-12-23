@@ -4,3 +4,9 @@ body {
     margin: 0;
     padding: 0;
 }
+
+mat-list .mat-list-item .mat-list-item-content {
+    display: flex !important;
+    justify-content: space-between;
+    width: 100%;
+}

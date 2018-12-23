@@ -21,6 +21,10 @@
     flex-direction: row;
 }
 
+.side-component {
+    margin-right: 30px;
+}
+
 .side-component, .post-component {
     min-width: 200px;
     color: grey;
