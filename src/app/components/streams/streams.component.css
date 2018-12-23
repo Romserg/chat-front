@@ -22,7 +22,7 @@
 }
 
 .side-component, .post-component {
-    min-width: 150px;
+    min-width: 200px;
     color: grey;
 }
 
