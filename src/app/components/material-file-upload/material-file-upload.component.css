@@ -1,0 +1,9 @@
+.example-form {
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    color: #ffffff;
+    background-color: #32C8FF;
+}

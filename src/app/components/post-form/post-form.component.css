@@ -1,0 +1,16 @@
+button {
+    background-color: #32C8FF;
+    color: #ffffff;;
+}
+
+.post-message-form {
+    display: flex;
+    flex-direction: column;
+}
+.textarea-full-width {
+    display: flex;
+}
+
+.mat-form-field-wrapper {
+    width: 100% !important;
+}

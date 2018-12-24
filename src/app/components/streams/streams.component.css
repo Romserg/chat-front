@@ -26,7 +26,17 @@
 }
 
 .side-component, .post-component {
-    min-width: 200px;
+    min-width: 30%;
     color: grey;
+    margin-top: 50px;
 }
 
+.post-component {
+    display: flex;
+    flex-direction: column;
+    min-width: 70%;
+}
+
+.post-component app-post-form {
+    width: 100%;
+}

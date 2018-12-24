@@ -10,3 +10,7 @@ mat-list .mat-list-item .mat-list-item-content {
     justify-content: space-between;
     width: 100%;
 }
+
+.post-message-form .textarea-full-width .mat-form-field-wrapper {
+    width: 100%;
+}
