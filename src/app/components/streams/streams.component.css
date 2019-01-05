@@ -19,6 +19,7 @@
 .main-items {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .side-component {
@@ -37,6 +38,3 @@
     min-width: 70%;
 }
 
-.post-component app-post-form {
-    width: 100%;
-}
