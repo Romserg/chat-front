@@ -10,7 +10,3 @@ button {
 .textarea-full-width {
     display: flex;
 }
-
-.mat-form-field-wrapper {
-    width: 100% !important;
-}
